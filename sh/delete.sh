@@ -1,3 +1,3 @@
 #!/bin/sh
 cd ../
-terraform destroy
+terraform destroy -auto-approve

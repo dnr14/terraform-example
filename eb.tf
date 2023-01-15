@@ -1,12 +1,12 @@
 resource "aws_elastic_beanstalk_application" "application" {
   # eb 어플리케이션 이름
-  name = var.my-awesome-app
+  name = var.zaritalk-application
 }
 
 resource "aws_elastic_beanstalk_environment" "environment" {
-  name                = "my-awesome-environment"
+  name                = "${var.zaritalk-application}-environment"
   application         = aws_elastic_beanstalk_application.application.name
-  solution_stack_name = "64bit Amazon Linux 2 v5.6.3 running Node.js 16"
+  solution_stack_name = var.zaritalk-application-environment-os
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
     name      = "IamInstanceProfile"
